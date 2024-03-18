@@ -4,6 +4,7 @@ import cors from 'cors';
 import { Server } from 'socket.io';
 import dotenv from 'dotenv';
 import { socketHandler } from './SocketHandler';
+import { ElasticSearchService } from './dataServices';
 
 dotenv.config();
 
@@ -24,6 +25,8 @@ http.listen(port, () => {
     console.log(`listening on port ${port}`);
 });
 
+const elasticSearch = new ElasticSearchService();
+
 const io = new Server(http, {
     cors: {
         origin: `${process.env.CLIENT_ORIGIN}`,
@@ -32,4 +35,4 @@ const io = new Server(http, {
     }
 });
 
-io.on('connection', socketHandler);
+io.on('connection', (socket) => socketHandler(socket, elasticSearch));
