@@ -22,12 +22,11 @@ class ElasticSearchService {
         });
     }
 
-    public async createIndex(index: string, id: string, document: any): Promise<void> {
+    public async createIndex(index: string, document: any): Promise<void> {
         await this.client.index({
             index,
-            id,
             document
-          });
+        });
     }
 
     public async checkIndexExists(index: string): Promise<boolean> {
@@ -36,10 +35,9 @@ class ElasticSearchService {
         });
     }
 
-    public async indexMessage(index: string, id: string, body: any): Promise<any> {
+    public async indexMessage(index: string, body: any): Promise<any> {
         return await this.client.index({
             index,
-            id,
             body
         });
     }

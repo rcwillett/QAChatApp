@@ -1,10 +1,10 @@
 export class QA {
-    id: string;
     question: string;
     answer: string;
-    constructor(id: string, question: string, answer: string) {
-        this.id = id;
+    questionVector: number[];
+    constructor(question: string, answer: string, questionVector: number[]) {
         this.question = question;
         this.answer = answer;
+        this.questionVector = questionVector;
     }
 }

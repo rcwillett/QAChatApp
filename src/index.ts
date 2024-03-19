@@ -35,4 +35,4 @@ const io = new Server(http, {
     }
 });
 
-io.on('connection', (socket) => socketHandler(socket, elasticSearch));
+io.on('connection', (socket) => socketHandler(socket, io, elasticSearch));
