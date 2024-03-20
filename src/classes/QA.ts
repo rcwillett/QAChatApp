@@ -1,10 +1,10 @@
 export class QA {
     question: string;
-    answer: string;
     questionVector: number[];
+    answer: string;
     constructor(question: string, answer: string, questionVector: number[]) {
         this.question = question;
-        this.answer = answer;
         this.questionVector = questionVector;
+        this.answer = answer;
     }
 }

@@ -2,7 +2,7 @@ import { Client } from '@elastic/elasticsearch';
 import fs from 'fs';
 
 class ElasticSearchService {
-    private client: Client;
+    public client: Client;
 
     constructor() {
         this.client = new Client({
@@ -21,32 +21,6 @@ class ElasticSearchService {
             }
         });
     }
-
-    public async createIndex(index: string, document: any): Promise<void> {
-        await this.client.index({
-            index,
-            document
-        });
-    }
-
-    public async checkIndexExists(index: string): Promise<boolean> {
-        return await this.client.indices.exists({
-            index: index
-        });
-    }
-
-    public async indexMessage(index: string, body: any): Promise<any> {
-        return await this.client.index({
-            index,
-            body
-        });
-    }
-
-    public async search(searchRequest: any): Promise<any> {
-        return await this.client.search(searchRequest);
-    }
 };
 
-const elasticSearchService = new ElasticSearchService();
-
-export { elasticSearchService, ElasticSearchService };
+export { ElasticSearchService };

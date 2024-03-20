@@ -27,7 +27,7 @@ export const socketHandler = async (socket: Socket, io: Server, elasticSearch: E
         try {
             const qaService = new QAService(elasticSearch);
             await qaService.init();
-            const qa = new QA(message.content, message.isReplyTo!.content, questionEmbedding);
+            const qa = new QA(message.isReplyTo!.content, message.content, questionEmbedding);
             await qaService.saveQA(qa);
         } catch (error) {
             console.error(error);
