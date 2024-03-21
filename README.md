@@ -18,7 +18,7 @@ ELASTIC_SEARCH_PASSWORD="<Your elastic search password>"
 OPENAI_API_KEY="<Your OpenAI api key>"
 ```
 
-Once this is done you can run `npm install --dev` and `npm run dev` to start the application in development mode.
+Once this is done, to run in dev mode, go to the root of the folder in a command prompt with node and run `npm install --dev` and `npm run dev` to start the application in development mode.
 
 ## Technical Details
  This server uses socket.io to provide a websocket communication for the chat room, OpenAI's APIs ADA2 model to create word embeddings and ElasticSearch to serve as the Vector DB (which uses cosine simliarities to score matches)
