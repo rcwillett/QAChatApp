@@ -10,15 +10,15 @@ In order to run this app you will need Git, Node.js V19.8.1 and npm V9.6.5 or up
 
 After cloning this repo to your local machine, add a .env file with the following content:
 ```
-CLIENT_ORIGIN="<Your client side origin domain"
-PORT="<port of your choice>"
+CLIENT_ORIGIN="<Your client side origin domain>"
+PORT="<Port you would like this to run on>"
 ELASTIC_SEARCH_ORIGIN="<Your elastic search domain>"
 ELASTIC_SEARCH_USERNAME="<Your elastic search username>"
 ELASTIC_SEARCH_PASSWORD="<Your elastic search password>"
 OPENAI_API_KEY="<Your OpenAI api key>"
 ```
 
-Once this is done you can run `npm install -d` and `npm run dev` to start the application in development mode.
+Once this is done you can run `npm install --dev` and `npm run dev` to start the application in development mode.
 
 ## Technical Details
  This server uses socket.io to provide a websocket communication for the chat room, OpenAI's APIs ADA2 model to create word embeddings and ElasticSearch to serve as the Vector DB (which uses cosine simliarities to score matches)
