@@ -5,6 +5,7 @@ import { Server } from 'socket.io';
 import dotenv from 'dotenv';
 import { socketHandler } from './SocketHandler';
 import { ElasticSearchService } from './dataServices';
+import { LoggingService } from './services';
 
 dotenv.config();
 
@@ -26,6 +27,7 @@ http.listen(port, () => {
 });
 
 const elasticSearch = new ElasticSearchService();
+const loggingService = new LoggingService();
 
 const io = new Server(http, {
     cors: {
@@ -35,4 +37,4 @@ const io = new Server(http, {
     }
 });
 
-io.on('connection', (socket) => socketHandler(socket, io, elasticSearch));
+io.on('connection', (socket) => socketHandler(socket, io, elasticSearch, loggingService));

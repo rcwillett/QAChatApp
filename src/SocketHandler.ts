@@ -2,11 +2,11 @@ import { Socket, Server } from 'socket.io';
 import { v4 as uuidv4 } from 'uuid';
 import { SocketEvents } from './types';
 import { Message, QA } from './classes';
-import { QAService } from './services';
+import { LoggingService, QAService } from './services';
 import { ElasticSearchService, OpenAIService } from './dataServices';
 import { CHATBOT_NAME } from './constants';
 
-export const socketHandler = async (socket: Socket, io: Server, elasticSearch: ElasticSearchService) => {
+export const socketHandler = async (socket: Socket, io: Server, elasticSearch: ElasticSearchService, loggingService: LoggingService) => {
     socket.on(SocketEvents.sendMessage, async (message: Message, callback) => {
         socket.broadcast.emit(SocketEvents.newMessage, message);
         callback(message);
