@@ -3,7 +3,7 @@
 
 ## Introduction
 
-This is the server side of a chat room application. It uses websocket communication to provide the chat functionality for the chat room. If a question is answered by another user, that question and answer is stored in a vector DB. These question and answer pairs are then queried using a cosine similarity to determine if a question has been answered. If there is a close enough match, that question's answer will be sent to the users in the chatroom.
+This is the server side of a chat room application. It uses websocket communication to provide the chat functionality for the chat room. If a question is answered by another user, that question and answer is stored in a vector DB. These question and answer pairs are then queried using a cosine similarity to determine if a question has been answered. If there is a close enough match, that question's answer will be sent to the users in the chat room.
 
 ## Running this App
 In order to run this app you will need Git, Node.js v20.11.1 and npm v10.2.4 or up installed on your machine, a server running ElasticSearch DB V8.12.2 (instructions for running this locally found [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started.html)), and an OpenAI Api Key with available usage.
@@ -22,6 +22,8 @@ OPENAI_API_KEY="<Your OpenAI api key>"
 ```
 
 Once this is done, to run in dev mode, go to the root of the folder in a command prompt with node and run `npm install --include=dev` and `npm run dev` to start the application in development mode.
+
+Note that you will also need to run the client side repository located [here](https://github.com/rcwillett/QAChatBotClient) to run the full application.
 
 ## Technical Details
  This server uses socket.io to provide a websocket communication for the chat room, OpenAI's APIs ADA2 model to create word embeddings and ElasticSearch to serve as the Vector DB (which uses cosine simliarities to score matches)
